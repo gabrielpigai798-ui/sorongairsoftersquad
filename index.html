@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sorong Airsofter Squad — Airsoft Sorong, Papua Barat</title>
+  <meta name="description" content="Sorong Airsofter Squad: komunitas airsoft di Sorong, Papua Barat. Main bareng setiap Minggu sore. Ayo bergabung!">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #060606;
+      --panel: #121212;
+      --red: #D3201F;
+      --flame: #FF4A1C;
+      --white: #F6F3EE;
+      --grey: #A9A59E;
+      --line: #2A2A2A;
+      --stencil: "Saira Stencil One", "Impact", sans-serif;
+      --cond: "Barlow Condensed", "Arial Narrow", sans-serif;
+      --body: "Barlow", "Segoe UI", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--flame); outline-offset: 3px; }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+    /* Navigasi */
+    header { position: sticky; top: 0; z-index: 20; background: rgba(6,6,6,.93); backdrop-filter: blur(6px); border-bottom: 2px solid var(--red); }
+    header .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: .6rem; padding-bottom: .6rem; gap: 1rem; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; font-family: var(--stencil); font-size: 1.1rem; letter-spacing: .03em; line-height: 1.1; }
+    .brand img { width: 44px; height: 44px; object-fit: contain; }
+    nav ul { list-style: none; padding: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    nav a { font-family: var(--cond); font-weight: 600; font-size: 1.1rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; padding: .2rem 0; border-bottom: 2px solid transparent; }
+    nav a:hover { color: var(--flame); border-color: var(--flame); }
+
+    /* Hero */
+    .hero { border-bottom: 1px solid var(--line); background: radial-gradient(60% 70% at 78% 45%, rgba(211,32,31,.28), transparent 70%); }
+    .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: clamp(3rem, 7vw, 5.5rem); }
+    .lokasi-kecil { font-family: var(--cond); font-weight: 600; font-size: 1.15rem; letter-spacing: .18em; text-transform: uppercase; color: var(--flame); margin-bottom: 1rem; }
+    h1 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2.8rem, 8.5vw, 6.4rem); line-height: .98; text-transform: uppercase; }
+    h1 em { font-style: normal; color: var(--red); }
+    .lead { margin-top: 1.5rem; max-width: 48ch; font-size: 1.25rem; color: #D8D4CC; }
+    .cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .btn { font-family: var(--cond); font-weight: 700; font-size: 1.2rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; padding: .85rem 1.7rem; border: 2px solid var(--white); clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px)); transition: background .2s, color .2s, border-color .2s; display: inline-block; }
+    .btn.utama { background: var(--red); border-color: var(--red); }
+    .btn.utama:hover { background: var(--white); border-color: var(--white); color: var(--black); }
+    .btn:not(.utama):hover { background: var(--white); color: var(--black); }
+    .hero-logo { display: flex; justify-content: center; }
+    .hero-logo img { width: min(100%, 420px); height: auto; filter: drop-shadow(0 0 40px rgba(211,32,31,.35)); }
+
+    section { padding: clamp(3.5rem, 7vw, 6rem) 0; border-bottom: 1px solid var(--line); }
+    h2 { font-family: var(--stencil); font-weight: 400; font-size: clamp(2rem, 5vw, 3.3rem); text-transform: uppercase; line-height: 1.05; margin-bottom: 2.25rem; }
+    h2::after { content: ""; display: block; width: 4.5rem; height: 6px; background: var(--red); margin-top: .9rem; }
+
+    /* Jadwal */
+    .jadwal { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .kartu { background: var(--panel); border: 1px solid var(--line); border-top: 5px solid var(--red); padding: 1.6rem; }
+    .kartu h3 { font-family: var(--cond); font-weight: 700; font-size: 1.5rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .6rem; }
+    .kartu .besar { font-family: var(--stencil); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; color: var(--flame); }
+    .kartu p { color: #D8D4CC; margin-top: .6rem; }
+    #hitung { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-top: 1.1rem; }
+    #hitung div { background: var(--black); border: 1px solid var(--line); text-align: center; padding: .8rem .4rem; }
+    #hitung strong { display: block; font-family: var(--stencil); font-weight: 400; font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1; }
+    #hitung span { font-family: var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--grey); }
+    #status { margin-top: 1rem; font-family: var(--cond); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--flame); }
+
+    /* Peta */
+    .peta { margin-top: 1.25rem; border: 1px solid var(--line); background: var(--panel); }
+    .peta iframe { display: block; width: 100%; height: 360px; border: 0; filter: grayscale(.4) contrast(1.05); }
+    .peta p { padding: 1rem 1.25rem; color: #D8D4CC; }
+    .peta a { color: var(--flame); font-weight: 600; }
+
+    /* Tentang */
+    .tentang { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .tentang p { max-width: 54ch; }
+    .tentang p + p { margin-top: 1.1rem; }
+    .nilai { list-style: none; padding: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .nilai li { background: var(--panel); padding: 1.1rem 1.3rem; }
+    .nilai strong { display: block; font-family: var(--cond); font-weight: 700; font-size: 1.4rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flame); }
+    .nilai span { color: #D8D4CC; font-size: .98rem; }
+
+    /* Cara gabung */
+    .langkah { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; counter-reset: l; }
+    .langkah li { counter-increment: l; background: var(--panel); border: 1px solid var(--line); padding: 1.5rem; }
+    .langkah li::before { content: counter(l); font-family: var(--stencil); font-size: 2.6rem; line-height: 1; color: var(--red); display: block; margin-bottom: .6rem; }
+    .langkah h3 { font-family: var(--cond); font-weight: 700; font-size: 1.4rem; letter-spacing: .06em; text-transform: uppercase; }
+    .langkah p { color: #D8D4CC; font-size: .98rem; margin-top: .3rem; }
+
+    /* Keselamatan */
+    .aman { margin-top: 2.5rem; background: linear-gradient(90deg, rgba(211,32,31,.18), transparent); border-left: 6px solid var(--red); padding: 1.6rem clamp(1.2rem, 3vw, 2rem); }
+    .aman h3 { font-family: var(--cond); font-weight: 700; font-size: 1.6rem; letter-spacing: .06em; text-transform: uppercase; }
+    .aman ul { margin: .9rem 0 0 1.2rem; display: grid; gap: .4rem; }
+
+    /* Bergabung */
+    .gabung { text-align: center; background: radial-gradient(50% 80% at 50% 100%, rgba(211,32,31,.35), transparent 70%); }
+    .gabung h2::after { margin-left: auto; margin-right: auto; }
+    .gabung p { max-width: 52ch; margin: 0 auto 2rem; font-size: 1.2rem; color: #D8D4CC; }
+    .gabung .cta { justify-content: center; margin-top: 0; }
+
+    footer { padding: 2rem 0 3rem; color: var(--grey); font-family: var(--cond); letter-spacing: .08em; text-transform: uppercase; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    footer img { width: 40px; height: 40px; object-fit: contain; vertical-align: middle; margin-right: .6rem; }
+
+    @media (max-width: 820px) {
+      .hero .wrap, .jadwal, .tentang { grid-template-columns: 1fr; }
+      .hero-logo { order: -1; }
+      .hero-logo img { width: min(70%, 280px); }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#atas"><img src="logo.png" alt="Logo Sorong Airsofter Squad"><span>Sorong Airsofter Squad</span></a>
+      <nav aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#jadwal">Jadwal</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#cara-gabung">Cara gabung</a></li>
+          <li><a href="#gabung">Ikut main</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="atas">
+
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <p class="lokasi-kecil">Sorong, Papua Barat &middot; Sejak 2022</p>
+          <h1>Mari <em>Gabung deng </em> kitong!</h1>
+          <p class="lead">Perkenalkan katong adalah komunitas airsoft dari Sorong. Setiap Minggu sore tong sering olahraga airsoft di lapangan: seru, aman, dan terbuka untuk kam yang masih pemula.</p>
+          <div class="cta">
+            <a class="btn utama" href="#gabung">Gabung sekarang</a>
+            <a class="btn" href="#jadwal">Lihat jadwal</a>
+          </div>
+        </div>
+        <div class="hero-logo">
+          <img src="logo.png" alt="Logo Sorong Airsofter Squad: dua senapan airsoft bersilang di atas tameng, tahun 2022">
+        </div>
+      </div>
+    </div>
+
+    <section id="jadwal">
+      <div class="wrap">
+        <h2>Jadwal & lokasi</h2>
+        <div class="jadwal">
+          <div class="kartu">
+            <h3>Main bareng</h3>
+            <div class="besar">Setiap Minggu sore</div>
+            <p>Sekitar pukul 15.00 sampai 18.00 WIT. Datang 30 menit lebih awal untuk persiapan dan pengarahan keselamatan.</p>
+          </div>
+          <div class="kartu">
+            <h3>Game berikutnya</h3>
+            <div id="hitung" aria-live="polite">
+              <div><strong id="h">--</strong><span>Hari</span></div>
+              <div><strong id="j">--</strong><span>Jam</span></div>
+              <div><strong id="m">--</strong><span>Menit</span></div>
+            </div>
+            <p id="status">Menghitung waktu...</p>
+          </div>
+        </div>
+
+        <div class="peta">
+          <iframe title="Peta lokasi MoiiPaintball Arena Sorong" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=MoiiPaintball+Arena+Sorong&output=embed"></iframe>
+          <p><strong>Lokasi:</strong> MoiiPaintball Arena Sorong, Papua Barat. Datang Minggu sore dan langsung bergabung bersama kami. <a href="https://www.google.com/maps/search/?api=1&query=MoiiPaintball+Arena+Sorong" target="_blank" rel="noopener">Buka di Google Maps</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="wrap tentang">
+        <div>
+          <h2>Tentang kami</h2>
+          <p>Sorong Airsofter Squad berdiri tahun 2022 dari sekelompok teman yang suka olahraga airsoft. Kami main di lapangan terbuka dengan senapan airsoft berpeluru plastik 6 mm, memakai pelindung mata dan aturan yang jelas.</p>
+          <p>Airsoft bukan hanya soal menembak. Ko bisa belajar membaca medan, bergerak bersama tim, dan berkomunikasi dengan singkat. Banyak anggota kami yang awalnya hanya ikut menonton, lalu ketagihan.</p>
+        </div>
+        <ul class="nilai">
+          <li><strong>Aman dulu</strong><span>Pelindung mata wajib, unit dicek sebelum main.</span></li>
+          <li><strong>Sportif</strong><span>Jujur saat terkena tembakan, hormati lawan dan wasit.</span></li>
+          <li><strong>Kompak</strong><span>Menang atau kalah, tong tetap satu tim dan seru seruan bareng.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="cara-gabung">
+      <div class="wrap">
+        <h2>Cara bergabung</h2>
+        <ol class="langkah">
+          <li><h3>Hubungi kami</h3><p>Kirim pesan lewat WhatsApp atau Instagram untuk masuk ke grup.</p></li>
+          <li><h3>Datang Minggu sore</h3><p>Ikut lihat dulu atau langsung coba. Pemula selalu tong terima.</p></li>
+          <li><h3>Siapkan perlengkapan</h3><p>Tanyakan ke panitia soal pinjam atau sewa unit dan pelindung mata.</p></li>
+          <li><h3>Mulai main</h3><p>Dengarkan pengarahan, lalu masuk lapangan bersama tim.</p></li>
+        </ol>
+
+        <div class="aman">
+          <h3>Aturan keselamatan</h3>
+          <ul>
+            <li>Pelindung mata penuh wajib dipakai sejak masuk area bermain.</li>
+            <li>Jangan pernah mengarahkan unit ke orang di luar permainan.</li>
+            <li>Senapan dalam keadaan aman (safe) dan magasin dilepas di area istirahat.</li>
+            <li>Patuhi batas kecepatan peluru yang ditentukan panitia.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="gabung" class="gabung">
+      <div class="wrap">
+        <h2>Ayo ikut main!</h2>
+        <p>Tra perlu punya unit sendiri. Cukup datang Minggu sore dengan semangat, katong siapkan sisanya</p>
+        <div class="cta">
+          <a class="btn utama" href="https://wa.me/6282196610616?text=Halo%20Sorong%20Airsofter%20Squad%2C%20saya%20mau%20ikut%20main!" target="_blank" rel="noopener">Chat WhatsApp</a>
+          <a class="btn" href="https://instagram.com/sorong_airsoftersquad" target="_blank" rel="noopener">Instagram kami</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span><img src="logo.png" alt="">&copy; <span id="tahun">2026</span> Sorong Airsofter Squad</span>
+      <span>Safety first: selalu pakai pelindung mata</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("tahun").textContent = new Date().getFullYear();
+
+    // Hitung mundur ke Minggu 15.00 WIT (UTC+9) = Minggu 06.00 UTC
+    function target() {
+      const n = new Date();
+      let t = Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate(), 6, 0, 0);
+      t += ((7 - n.getUTCDay()) % 7) * 86400000;
+      return t;
+    }
+    function tick() {
+      const now = Date.now();
+      let t = target();
+      const lama = 3 * 3600000; // durasi game 3 jam
+      const status = document.getElementById("status");
+      if (now >= t && now < t + lama) {
+        ["h", "j", "m"].forEach(id => document.getElementById(id).textContent = "00");
+        status.textContent = "Game sedang berlangsung! Ayo merapat ke lapangan.";
+        return;
+      }
+      if (now >= t + lama) t += 7 * 86400000;
+      const d = t - now;
+      document.getElementById("h").textContent = Math.floor(d / 86400000);
+      document.getElementById("j").textContent = String(Math.floor(d % 86400000 / 3600000)).padStart(2, "0");
+      document.getElementById("m").textContent = String(Math.floor(d % 3600000 / 60000)).padStart(2, "0");
+      status.textContent = "Menuju Minggu sore, 15.00 WIT";
+    }
+    tick();
+    setInterval(tick, 30000);
+  </script>
+</body>
+</html>
